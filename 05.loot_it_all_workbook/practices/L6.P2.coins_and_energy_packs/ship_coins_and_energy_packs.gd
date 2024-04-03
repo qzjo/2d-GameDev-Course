@@ -10,6 +10,13 @@ var target_position := Vector2(0, 0)
 var coins := 0
 var energy := 20
 
+func set_coin_amount(new_coin: int) -> void:
+	coins = new_coin
+	get_node("UI/CoinsCount").text = "x" + str(coins)
+
+func set_enrgy_amnt(new_energy: int) -> void:
+	energy = new_energy
+	get_node("UI/EnergyBar").value = energy
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -36,5 +43,9 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area_that_entered: Area2D) -> void:
-	energy += 20.0
-	get_node("UI/EnergyBar").value = energy
+	if area_that_entered.is_in_group("coin"):
+		set_coin_amount(coins + 1)
+	elif area_that_entered.is_in_group("energy"):
+		set_enrgy_amnt(energy + 20)
+	#energy += 20.0
+	#get_node("UI/EnergyBar").value = energy

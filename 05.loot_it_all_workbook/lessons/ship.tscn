@@ -1,12 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmv50krf4bo5r"]
+[gd_scene load_steps=9 format=3 uid="uid://dmv50krf4bo5r"]
 
 [ext_resource type="Texture2D" uid="uid://bniyrxn3r2v8h" path="res://assets/ship.png" id="3_pdppw"]
 [ext_resource type="Script" path="res://lessons/ship.gd" id="4_p1sls"]
+[ext_resource type="Texture2D" uid="uid://d0bh8am2qd005" path="res://assets/gem_icon.png" id="5_aolg0"]
 [ext_resource type="PackedScene" uid="uid://dgf54k70yiiff" path="res://assets/ship_visual_effects/main_thruster/main_thruster.tscn" id="5_q7c3l"]
 [ext_resource type="PackedScene" uid="uid://bklom8bhpxg4h" path="res://assets/ship_visual_effects/side_thruster/side_thruster.tscn" id="6_1updt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ml450"]
 radius = 47.1699
+
+[sub_resource type="LabelSettings" id="LabelSettings_guh3a"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtyro"]
 bg_color = Color(0.321569, 0.733333, 1, 1)
@@ -43,15 +48,28 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="GemCount" type="Label" parent="UI"]
+offset_left = -13.0
+offset_top = -92.0
+offset_right = 27.0
+offset_bottom = -64.0
+text = "x0"
+label_settings = SubResource("LabelSettings_guh3a")
+
 [node name="HealthBar" type="ProgressBar" parent="UI"]
 layout_mode = 0
 offset_left = -61.0
 offset_top = -68.0
 offset_right = 60.0
 offset_bottom = -57.0
-scale = Vector2(1.06069, 0.989517)
+scale = Vector2(1.06069, 0.97067)
 theme_override_styles/fill = SubResource("StyleBoxFlat_xtyro")
 value = 100.0
 show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+position = Vector2(-37, -84)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_aolg0")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
