@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cvjky74hyyse8"]
 
 [ext_resource type="Script" path="res://practices/L7.P1.spawn_random_items/random_collectible_placer.gd" id="1_8cyt6"]
 
@@ -7,3 +7,5 @@ script = ExtResource("1_8cyt6")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]

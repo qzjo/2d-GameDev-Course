@@ -8,6 +8,7 @@ var energy := 20.0
 
 
 func _ready() -> void:
+
 	area_entered.connect(_on_area_entered)
 	set_energy(0)
 
