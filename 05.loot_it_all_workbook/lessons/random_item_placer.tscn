@@ -3,11 +3,13 @@
 [ext_resource type="Script" path="res://lessons/random_item_placer.gd" id="1_2v5d1"]
 
 [node name="RandomItemPlacer" type="Node2D"]
+position = Vector2(965, 542)
 script = ExtResource("1_2v5d1")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(965, 537)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
