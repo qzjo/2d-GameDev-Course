@@ -7,10 +7,7 @@ var item_scenes := [
 
 func _ready() -> void:
 	get_node("Timer").timeout.connect(_on_timer_timeout)
-	var gem_scene := preload("res://lessons/Gem.tscn")
-	var gem_instance := gem_scene.instantiate()
-	add_child(gem_instance)
-	get_node("Timer").timeout.connect(_on_timer_timeout)
+
 
 
 func _on_timer_timeout() -> void:

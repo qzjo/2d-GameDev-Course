@@ -9,6 +9,7 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	
 func play_floating_animation() -> void:
+	
 	var tween := create_tween()
 	var sprite_2d := get_node("Sprite2D")
 	tween.set_trans(Tween.TRANS_SINE)
