@@ -1,27 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhv8u8vl7ovab"]
+[gd_scene load_steps=8 format=3 uid="uid://dhv8u8vl7ovab"]
 
+[ext_resource type="Script" path="res://lessons/chest/chest.gd" id="1_qefgu"]
 [ext_resource type="Texture2D" uid="uid://c3hwsm5ugp8qw" path="res://lessons/chest/bottom.png" id="1_qilwo"]
 [ext_resource type="Texture2D" uid="uid://bnem1cahhoxdk" path="res://lessons/chest/top.png" id="2_6a31e"]
+[ext_resource type="Shader" path="res://lessons/chest/group_outline.gdshader" id="2_shopm"]
 [ext_resource type="Texture2D" uid="uid://bu2jin246nel5" path="res://lessons/chest/lock.png" id="3_ofval"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgdhm"]
 size = Vector2(96, 77)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fk4jn"]
+resource_local_to_scene = true
+shader = ExtResource("2_shopm")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 3.0
+shader_parameter/viewport_scale = Vector2(1, 1)
+
 [node name="Chest" type="Area2D"]
 position = Vector2(-10, -37)
+script = ExtResource("1_qefgu")
 
-[node name="Bottom" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(12, 38.5)
+shape = SubResource("RectangleShape2D_xgdhm")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_fk4jn")
+
+[node name="Bottom" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(12, 43)
 texture = ExtResource("1_qilwo")
 
-[node name="Top" type="Sprite2D" parent="."]
+[node name="Top" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(12, 30)
 texture = ExtResource("2_6a31e")
 
-[node name="Lock" type="Sprite2D" parent="."]
+[node name="Lock" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(11, 51)
 texture = ExtResource("3_ofval")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 38.5)
-shape = SubResource("RectangleShape2D_xgdhm")
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
