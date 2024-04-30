@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://cs4k5euve3nra"]
 
 [ext_resource type="Script" path="res://practices/L6.P1.the_pinata/balloon_pinata.gd" id="1_w1uds"]
-[ext_resource type="Material" path="res://practices/L6.P1.the_pinata/material.tres" id="2_h718a"]
-[ext_resource type="Texture2D" path="res://practices/L6.P1.the_pinata/balloon_tail.png" id="3_8kwgq"]
-[ext_resource type="Texture2D" path="res://practices/L6.P1.the_pinata/balloon_top.png" id="4_5cass"]
+[ext_resource type="Material" uid="uid://dwoekm186ke5c" path="res://practices/L6.P1.the_pinata/material.tres" id="2_h718a"]
+[ext_resource type="Texture2D" uid="uid://ypt6hxuqpeen" path="res://practices/L6.P1.the_pinata/balloon_tail.png" id="3_8kwgq"]
+[ext_resource type="Texture2D" uid="uid://c5wl76sq80jjm" path="res://practices/L6.P1.the_pinata/balloon_top.png" id="4_5cass"]
+[ext_resource type="PackedScene" uid="uid://eujxcp85jnev" path="res://addons/gdquest_practice_framework/practice_solutions/L6.P1.the_pinata/candy/candy.tscn" id="5_wed3p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb8xq"]
 radius = 47.0
@@ -32,3 +33,12 @@ offset = Vector2(0, 34)
 position = Vector2(0, -79)
 texture = ExtResource("4_5cass")
 offset = Vector2(0, 5)
+
+[node name="Candy" parent="." instance=ExtResource("5_wed3p")]
+position = Vector2(206, 199)
+
+[node name="Candy2" parent="." instance=ExtResource("5_wed3p")]
+position = Vector2(-620, 23)
+
+[node name="Candy3" parent="." instance=ExtResource("5_wed3p")]
+position = Vector2(316, -243)
