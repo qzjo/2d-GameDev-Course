@@ -2,6 +2,23 @@
 extends Area2D
 
 
+
+func _input_event(viewport: Node, event: InputEvent, shape_idx: int):
+	
+	var evnt_muse_ckc: bool = (
+		event is InputEventMouseButton and 
+		event.button_index == MOUSE_BUTTON_LEFT and 
+		event.is_pressed()
+	)
+	
+	if evnt_muse_ckc:
+		var tween = create_tween()
+		tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.3)
+		tween.finished.connect(queue_free)
+		print("OLDSl")
+	
+
+ 
 func _ready() -> void:
 	play_floating_animation()
 

@@ -21,6 +21,7 @@ func _spawn_random_item() -> void:
 	
 	var tween := create_tween()
 	
+	
 	tween.set_parallel()
 	loot_item.scale = Vector2(0.25, 0.25)
 	tween.tween_property(loot_item, "scale", Vector2(1.0, 1.0), half_flight_time)
@@ -47,7 +48,7 @@ func _input_event(viewport: Node, event: InputEvent, shape_idx: int):
 
 
 func open() -> void:
-	animation_player.play("open")		
+	animation_player.play("open")
 	input_pickable = false
 	
 	if possible_items.is_empty():
